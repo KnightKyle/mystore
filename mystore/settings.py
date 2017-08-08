@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['localhost', 'knightkyle-mystore.herokuapp.com']
 INSTALLED_APPS = [
 	'estore',
     'bootstrap3',
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,7 +129,11 @@ LOGIN_URL = '/login/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-MEDIA_URL = '/media/'
+AWS_STORAGE_BUCKET_NAME = os.environ['knightkyle-mystore-s3']
+AWS_ACCESS_KEY_ID = os.environ['AKIAJWNYBGHCXDMWN56A']
+AWS_SECRET_ACCESS_KEY = os.environ['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']
+
+MEDIA_URL = 'http://{}.s3.amazonaws.com/'.format('AWS_STORAGE_BUCKET_NAME')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -146,3 +151,4 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
