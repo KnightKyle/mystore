@@ -133,7 +133,7 @@ AWS_STORAGE_BUCKET_NAME = os.environ['knightkyle-mystore-s3']
 AWS_ACCESS_KEY_ID = os.environ['AKIAJWNYBGHCXDMWN56A']
 AWS_SECRET_ACCESS_KEY = os.environ['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']
 
-MEDIA_URL = 'http://{}.s3.amazonaws.com/'.format('AWS_STORAGE_BUCKET_NAME')
+MEDIA_URL = 'http://{}.s3.amazonaws.com/'.format('knightkyle-mystore-s3')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
