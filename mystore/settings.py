@@ -129,11 +129,11 @@ LOGIN_URL = '/login/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-AWS_STORAGE_BUCKET_NAME = os.environ['knightkyle-mystore-s3']
-AWS_ACCESS_KEY_ID = os.environ['AKIAJWNYBGHCXDMWN56A']
-AWS_SECRET_ACCESS_KEY = os.environ['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']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
-MEDIA_URL = 'http://{}.s3.amazonaws.com/'.format('knightkyle-mystore-s3')
+MEDIA_URL = 'http://{}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
